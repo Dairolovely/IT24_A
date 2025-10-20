@@ -29,18 +29,33 @@
 </body>
 <script>
 
-    var map = L.map('map').setView([8.360363882026551, 124.86780124914536], 17);
+function initMap(mapDataUrl){
+
+    var map = L.map('map').setView([8.359645, 124.869147], 17);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+console.log("Map Loaded" + Date());
 
-var marker = L.marker([8.360363882026551, 124.86780124914536]).addTo(map);
-const dogeImage = "<img src= 'https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1562' class='popup-image'>"; 
-const popupContent = `${dogeImage}<br><b>Hello World!</b></br>I am a popup.`;
+fetch(mapDataUrl)
+    .then(response => response.json())
+    .then(data =>{
+        data.forEach(pin=>{
+            const marker = L.marker([pin.lat,pin.lng]).addTo(map);
+            const img = `<img src ='${pin.img}' class=popup-image>`;
+            marker.bindPopup(`${img}<br><b> ${pin.title} </b></br> ${pin.description}`);
 
-marker.bindPopup(popupContent).openPopup();
+            console.log(`${pin.name} Loaded ` +Date());
+});
+    })
+    .catch(err=>console.error('Error loading JSON:', err));
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+    initMap('maps.json');
+})
+
 
 </script>
 </html>

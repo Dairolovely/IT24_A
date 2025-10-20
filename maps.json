@@ -1,0 +1,22 @@
+[
+    {
+    "name":"ICS Laboratory 1",
+    "title": "ICS Lab 1",
+    "description": "Computer Lab" , 
+    "img": "https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1562",
+    "lat": 8.3596, 
+    "lng" : 124.8691
+
+},
+{
+
+ "name":"ICS Laboratory 1",
+    "title": "ICS Lab 1",
+    "description": "Computer Lab" , 
+    "img": "https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1562",
+    "lat": 8.3606, 
+    "lng" : 124.8683
+
+    }
+
+]
