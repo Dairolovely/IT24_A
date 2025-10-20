@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Maps</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+      <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+     <style>
+        #map {height: 400px;}
+        .popup-image {
+            max-width: 200px;
+            height: auto;
+        }
+     </style>
+</head>
+<body>
+    <h1>Basic Map</h1>
+     <div id="map"></div>
+
+
+</body>
+<script>
+
+    var map = L.map('map').setView([8.360363882026551, 124.86780124914536], 17);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+var marker = L.marker([8.360363882026551, 124.86780124914536]).addTo(map);
+const dogeImage = "<img src= 'https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1562' class='popup-image'>"; 
+const popupContent = `${dogeImage}<br><b>Hello World!</b></br>I am a popup.`;
+
+marker.bindPopup(popupContent).openPopup();
+
+</script>
+</html>
